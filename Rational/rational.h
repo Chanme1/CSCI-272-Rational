@@ -1,5 +1,4 @@
 //
-//  main.cpp
 //  Rational
 //
 //  Created by Melissa Chan on 5/25/17.
