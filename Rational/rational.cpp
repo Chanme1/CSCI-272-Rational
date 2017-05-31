@@ -1,5 +1,4 @@
 //
-//  rational.cpp
 //  Rational
 //
 //  Created by Melissa Chan on 5/25/17.
@@ -11,11 +10,12 @@
 #include "rational.h"
 using namespace std;
 
-Rational::Rational()
+Rational::Rational() //Default Values in case no initializers are provided
 {
     numerator = 0;
     denominator = 1;
 }
+
 Rational::Rational(int num, int deno):numerator(num), denominator(deno)
 {
     if (deno == 0)
@@ -45,7 +45,7 @@ int Rational::getdenominator() const
     return denominator;
 }
 
-Rational Rational::operator+(const Rational &j)
+Rational Rational::operator+(const Rational &j) //addition
 {
     numerator = j.numerator * denominator + j.denominator * numerator;
     denominator = j.denominator * denominator;
@@ -54,7 +54,7 @@ Rational Rational::operator+(const Rational &j)
     return Rational(numerator, denominator);
 }
 
-Rational Rational::operator-(const Rational &b)
+Rational Rational::operator-(const Rational &b) //subtraction
 {
     numerator = (b.denominator * numerator) - (denominator * b.numerator);
     denominator = b.denominator * denominator;
@@ -63,7 +63,7 @@ Rational Rational::operator-(const Rational &b)
     return Rational(numerator, denominator);
 }
 
-Rational Rational::operator*(const Rational &a)
+Rational Rational::operator*(const Rational &a) //multiplication 
 {
     numerator = a.numerator * numerator;
     denominator = a.denominator * denominator;
@@ -72,7 +72,7 @@ Rational Rational::operator*(const Rational &a)
     return Rational(numerator, denominator);
 }
 
-Rational Rational::operator/(const Rational &c)
+Rational Rational::operator/(const Rational &c) //division
 {
     numerator = c.denominator * numerator;
     denominator = c.numerator * denominator;
@@ -81,17 +81,17 @@ Rational Rational::operator/(const Rational &c)
     return Rational(numerator, denominator);
 }
 
-void Rational::print()
+void Rational::print() //prints the fractions
 {
     cout << numerator << "/" << denominator;
 }
 
-void Rational::printFloat()
+void Rational::printFloat() //prints the fraction as a floating point number
 {
     cout << static_cast <float> (numerator)/denominator << endl;
 }
 
-void Rational::reduction()
+void Rational::reduction() //simplifies the fraction. 
 {
     int gcd = 0; //greatest common denominator
     int min = (numerator > denominator) ? numerator:denominator;
